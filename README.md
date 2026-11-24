@@ -64,7 +64,7 @@ The table below compiles leading consumer electronics review platforms and spec 
 
 Discover premier open-source utilities and diagnostic suites for testing, optimizing, benchmarking, and maintaining consumer electronics. Ranked in descending order by GitHub stargazer count. 🌟
 
-| Project & Repo Link | GitHub Stars | Primary Domain / Focus | Key Capabilities & Reviewer Utility |
+| Project & Repo Link | GitHub_Stars | Primary Domain / Focus | Key Capabilities & Reviewer Utility |
 |:---|:---:|:---|:---|
 | **[aristocratos/btop](https://github.com/aristocratos/btop)** | [![btop Stars](https://img.shields.io/github/stars/aristocratos/btop?style=social&color=white)](https://github.com/aristocratos/btop/stargazers) | 🖥️ Terminal Resource & Hardware Monitor | Modern C++ TUI monitoring real-time CPU core frequencies, memory pressure, I/O rates, and GPU thermals across NVIDIA, AMD, and Intel hardware. |
 | **[nicolargo/glances](https://github.com/nicolargo/glances)** | [![glances Stars](https://img.shields.io/github/stars/nicolargo/glances?style=social&color=white)](https://github.com/nicolargo/glances/stargazers) | 📊 Cross-Platform System Telemetry & Web Dashboard | Python-based system telemetry engine with built-in REST API and web UI for tracking hardware sensors, storage load, and power utilization. |
@@ -110,7 +110,7 @@ We welcome community contributions! To suggest new tools or update existing entr
 1. **Fork the repository** to your personal GitHub account. 🍴
 2. **Add or modify entries** in `README.md` maintaining the established tabular schema. 📝
    - For SaaS tools: include verified pricing and specific free tier/trial limits.
-   - For Open-Source repositories: include repository links and official star counts.
+   - For Open-Source repositories: include repository links and official Stars_Counts.
 3. **Submit a Pull Request** with a concise description of the hardware utility or comparison service. 🚀
 
 ---
