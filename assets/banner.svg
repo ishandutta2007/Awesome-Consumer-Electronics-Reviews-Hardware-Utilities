@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="45%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#070b12" />
+    </linearGradient>
+
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="techGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" stroke-opacity="0.6"/>
+      <circle cx="40" cy="40" r="1.2" fill="#38bdf8" fill-opacity="0.25" />
+    </pattern>
+
+    <!-- Filter for glow effects -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.08); }
+    }
+    @keyframes dashMove {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes waveFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes telemetryBlink {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    @keyframes radarSweep {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 400; }
+    }
+    .orb-1 { animation: pulseGlow 7s ease-in-out infinite; transform-origin: 200px 120px; }
+    .orb-2 { animation: pulseGlow 9s ease-in-out infinite 1.5s; transform-origin: 1000px 280px; }
+    .dynamic-line { stroke-dasharray: 12, 12; animation: dashMove 20s linear infinite; }
+    .signal-wave { animation: waveFloat 5s ease-in-out infinite; }
+    .led-1 { animation: telemetryBlink 2.2s ease-in-out infinite; }
+    .led-2 { animation: telemetryBlink 1.8s ease-in-out infinite 0.4s; }
+    .led-3 { animation: telemetryBlink 2.6s ease-in-out infinite 0.9s; }
+    .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; }
+    .body-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" rx="16" fill="url(#techGrid)" />
+
+  <!-- Dynamic Glowing Ambient Orbs (Background layer) -->
+  <g class="orb-1">
+    <circle cx="220" cy="110" r="140" fill="#38bdf8" filter="url(#softGlow)" opacity="0.3" />
+  </g>
+  <g class="orb-2">
+    <circle cx="980" cy="270" r="160" fill="#a855f7" filter="url(#softGlow)" opacity="0.25" />
+    <circle cx="850" cy="140" r="110" fill="#06b6d4" filter="url(#softGlow)" opacity="0.2" />
+  </g>
+
+  <!-- Dynamic Animated Circuit & Diagnostic Signal Lines (Behind Foreground Content) -->
+  <g opacity="0.75">
+    <!-- Oscilloscope / Telemetry Waveform -->
+    <path class="dynamic-line" d="M 0 350 Q 150 320 300 350 T 600 350 T 900 350 T 1200 350" fill="none" stroke="url(#lineGrad)" stroke-width="2.5" />
+    <path class="signal-wave" d="M 50 330 L 180 330 L 210 290 L 240 370 L 270 310 L 300 330 L 520 330" fill="none" stroke="#38bdf8" stroke-width="1.8" opacity="0.5" />
+    <path class="signal-wave" d="M 680 330 L 800 330 L 830 280 L 860 380 L 890 300 L 920 330 L 1150 330" fill="none" stroke="#a855f7" stroke-width="1.8" opacity="0.45" />
+
+    <!-- Corner Hardware Traces -->
+    <path d="M 30 50 L 120 50 L 160 90 L 280 90" fill="none" stroke="#334155" stroke-width="2" />
+    <circle cx="280" cy="90" r="4" fill="#38bdf8" class="led-1" />
+
+    <path d="M 1170 50 L 1060 50 L 1020 90 L 920 90" fill="none" stroke="#334155" stroke-width="2" />
+    <circle cx="920" cy="90" r="4" fill="#a855f7" class="led-2" />
+  </g>
+
+  <!-- Geometric Decorative Hardware Badges/Icons (Background Left & Right) -->
+  <g transform="translate(60, 110)" opacity="0.85">
+    <!-- Chip Icon Frame -->
+    <rect x="0" y="0" width="70" height="70" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    <rect x="18" y="18" width="34" height="34" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="35" cy="35" r="5" fill="#38bdf8" class="led-3" />
+    <!-- Pin connectors -->
+    <line x1="10" y1="25" x2="0" y2="25" stroke="#38bdf8" stroke-width="2" />
+    <line x1="10" y1="35" x2="0" y2="35" stroke="#38bdf8" stroke-width="2" />
+    <line x1="10" y1="45" x2="0" y2="45" stroke="#38bdf8" stroke-width="2" />
+    <line x1="60" y1="25" x2="70" y2="25" stroke="#38bdf8" stroke-width="2" />
+    <line x1="60" y1="35" x2="70" y2="35" stroke="#38bdf8" stroke-width="2" />
+    <line x1="60" y1="45" x2="70" y2="45" stroke="#38bdf8" stroke-width="2" />
+  </g>
+
+  <g transform="translate(1070, 110)" opacity="0.85">
+    <!-- Display / Audio Spec Icon Frame -->
+    <rect x="0" y="0" width="70" height="70" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    <rect x="14" y="16" width="42" height="30" rx="4" fill="#1e293b" stroke="#c084fc" stroke-width="1.5" />
+    <line x1="28" y1="52" x2="42" y2="52" stroke="#c084fc" stroke-width="2" />
+    <line x1="35" y1="46" x2="35" y2="52" stroke="#c084fc" stroke-width="2" />
+    <!-- Equalizer Mini Bars -->
+    <rect x="22" y="30" width="3" height="10" fill="#38bdf8" />
+    <rect x="29" y="24" width="3" height="16" fill="#818cf8" />
+    <rect x="36" y="20" width="3" height="20" fill="#a855f7" />
+    <rect x="43" y="27" width="3" height="13" fill="#c084fc" />
+  </g>
+
+  <!-- FOREGROUND CONTENT: Header Tag, Title, Subtitle, Feature Badges -->
+  <!-- Top Category Pill -->
+  <g transform="translate(435, 45)">
+    <rect x="0" y="0" width="330" height="34" rx="17" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" opacity="0.9" />
+    <circle cx="18" cy="17" r="4.5" fill="#10b981" class="led-1" />
+    <text x="32" y="22" fill="#94a3b8" class="body-text" font-size="12" font-weight="600" letter-spacing="1.5">HARDWARE LABS &amp; UTILITIES</text>
+  </g>
+
+  <!-- Main Repository Title (Ensured Foreground, Clear Contrast) -->
+  <text x="600" y="135" text-anchor="middle" class="title-text" font-size="37" fill="url(#primaryGrad)" letter-spacing="-0.5">
+    Consumer Electronics Reviews &amp; Utilities
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="175" text-anchor="middle" class="body-text" font-size="17" fill="#94a3b8" font-weight="400">
+    Curated SaaS Comparison Portals • Open-Source Diagnostics • Display &amp; Audio Calibration
+  </text>
+
+  <!-- Feature Pills / Badges in Foreground -->
+  <g transform="translate(180, 215)">
+    <!-- Pill 1: Objective Benchmarks -->
+    <g transform="translate(0, 0)">
+      <rect width="185" height="38" rx="19" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
+      <circle cx="22" cy="19" r="5" fill="#38bdf8" />
+      <text x="36" y="24" fill="#e2e8f0" class="body-text" font-size="13" font-weight="600">Hardware Telemetry</text>
+    </g>
+
+    <!-- Pill 2: Display & Color Calibration -->
+    <g transform="translate(205, 0)">
+      <rect width="205" height="38" rx="19" fill="#0f172a" stroke="#818cf8" stroke-width="1.2" />
+      <circle cx="22" cy="19" r="5" fill="#818cf8" />
+      <text x="36" y="24" fill="#e2e8f0" class="body-text" font-size="13" font-weight="600">Display / Color Profiling</text>
+    </g>
+
+    <!-- Pill 3: Audio & Acoustics EQ -->
+    <g transform="translate(430, 0)">
+      <rect width="185" height="38" rx="19" fill="#0f172a" stroke="#a855f7" stroke-width="1.2" />
+      <circle cx="22" cy="19" r="5" fill="#a855f7" />
+      <text x="36" y="24" fill="#e2e8f0" class="body-text" font-size="13" font-weight="600">Audio EQ &amp; Acoustics</text>
+    </g>
+
+    <!-- Pill 4: S.M.A.R.T. & Storage -->
+    <g transform="translate(635, 0)">
+      <rect width="205" height="38" rx="19" fill="#0f172a" stroke="#ec4899" stroke-width="1.2" />
+      <circle cx="22" cy="19" r="5" fill="#ec4899" />
+      <text x="36" y="24" fill="#e2e8f0" class="body-text" font-size="13" font-weight="600">S.M.A.R.T. &amp; Storage Lab</text>
+    </g>
+  </g>
+
+  <!-- Bottom Metric & Status Highlights -->
+  <g transform="translate(260, 275)" opacity="0.9">
+    <rect width="680" height="42" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+    <text x="35" y="26" fill="#38bdf8" class="body-text" font-size="13" font-weight="600">⚡ 20+ Open-Source Utilities</text>
+    <text x="250" y="26" fill="#64748b" class="body-text" font-size="13">|</text>
+    <text x="280" y="26" fill="#a855f7" class="body-text" font-size="13" font-weight="600">📊 Ranked SaaS Platforms</text>
+    <text x="475" y="26" fill="#64748b" class="body-text" font-size="13">|</text>
+    <text x="505" y="26" fill="#10b981" class="body-text" font-size="13" font-weight="600">🛡️ Objective &amp; Vendor-Free</text>
+  </g>
+
+  <!-- Border Frame Accent -->
+  <rect x="1" y="1" width="1198" height="418" rx="15" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.6" />
+</svg>
